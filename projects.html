@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Samyam Subedi</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* PAGE HEADER */
+    .page-header {
+      position: relative;
+      height: 320px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 6vw 48px;
+      overflow: hidden;
+    }
+
+    .page-header__bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .page-header__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      opacity: 0.2;
+      filter: grayscale(20%);
+    }
+
+    .page-header__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(15,14,12,0.95) 35%, rgba(15,14,12,0.4) 100%);
+    }
+
+    .page-header__content {
+      position: relative;
+      z-index: 1;
+      max-width: 1140px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .page-header__content h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    /* FILTER BAR */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--gold-dim);
+      background: transparent;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      font-family: var(--sans);
+      border-radius: var(--radius);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: var(--gold-glow);
+    }
+
+    /* PROJECT CARD OVERRIDES */
+    .card--project {
+      cursor: pointer;
+      position: relative;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .card--project:hover {
+      background: var(--surface2);
+      transform: translateY(-1px);
+    }
+
+    .card__expand-hint {
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.4);
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .card--project:hover .card__expand-hint { color: var(--gold); }
+
+    .card__expand-hint::after {
+      content: '↓';
+    }
+
+    .card__detail {
+      display: none;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--gold-dim);
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .card--project.expanded .card__detail { display: block; }
+    .card--project.expanded .card__expand-hint::after { content: '↑'; }
+
+    .card__detail ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .card__detail ul li {
+      padding: 5px 0 5px 18px;
+      position: relative;
+    }
+
+    .card__detail ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .card--placeholder {
+      background: transparent !important;
+      border: 1px dashed rgba(201,168,76,0.15) !important;
+      cursor: default;
+    }
+
+    .card--placeholder:hover { transform: none !important; }
+  </style>
+</head>
+<body class="page">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header__bg">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1400&q=80&fit=crop" alt="">
+    </div>
+    <div class="page-header__content">
+      <p class="section__label" style="margin-bottom:12px;">Technical Work</p>
+      <h1>Cybersecurity Projects</h1>
+    </div>
+  </div>
+
+  <section class="section section--alt">
+    <div class="section__inner--wide">
+
+      <!-- FILTER BAR -->
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Infrastructure">Infrastructure</button>
+        <button class="filter-btn" data-filter="Cryptography">Cryptography</button>
+        <button class="filter-btn" data-filter="Web Security">Web Security</button>
+        <button class="filter-btn" data-filter="Reconnaissance">Reconnaissance</button>
+        <button class="filter-btn" data-filter="DNS Attacks">DNS</button>
+        <button class="filter-btn" data-filter="Intrusion Detection">IDS/IPS</button>
+        <button class="filter-btn" data-filter="Network Security">Network</button>
+      </div>
+
+      <!-- PROJECTS GRID -->
+      <div class="cards-grid" id="projectsGrid">
+
+        <div class="card card--project" data-category="Infrastructure">
+          <div class="card__tag">Infrastructure</div>
+          <div class="card__title">Virtual Machine Setup</div>
+          <div class="card__body">Installation and configuration of Windows VMs using VMWare — Client, Attacker, and Server. All subsequent security projects were conducted within this isolated environment.</div>
+          <div class="card__pills">
+            <span class="pill">VMWare</span>
+            <span class="pill">Windows VM</span>
+            <span class="pill">Network Isolation</span>
+          </div>
+          <div class="card__expand-hint">Click to expand</div>
+          <div class="card__detail">
+            <p>The project involved creating three interconnected virtual machines:</p>
+            <ul>
+              <li>cybersec-client — target end-user machine</li>
+              <li>cybersec-attacker — machine used to launch simulated attacks</li>
+              <li>cybersec-server — hosting services and databases</li>
+            </ul>
+            <p style="margin-top:12px;">This isolated lab environment formed the foundation for all subsequent cybersecurity simulations.</p>
+          </div>
+        </div>
+
+        <div class="card card--project" data-category="Cryptography">
+          <div class="card__tag">Cryptography</div>
+          <div class="card__title">Password Cracking</div>
+          <div class="card__body">Used John the Ripper to auto-detect encryption and crack passwords from a large plaintext wordlist, completed using a combination of single and incremental attack modes.</div>
+          <div class="card__pills">
+            <span class="pill">John the Ripper</span>
+            <span class="pill">Hash Analysis</span>
+            <span class="pill">Wordlist Attack</span>
+          </div>
+          <div class="card__expand-hint">Click to expand</div>
+          <div class="card__detail">
+            <ul>
+              <li>Auto-detected encryption type using John the Ripper's built-in detection</li>
+              <li>Single mode: targeted specific account names and simple variations</li>
+              <li>Incremental mode: exhaustive character combination cracking</li>
+              <li>Successfully recovered passwords from a large plaintext file of common passwords</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card--project" data-category="Web Security">
+          <div class="card__tag">Web Security</div>
+          <div class="card__title">SQL Injection</div>
+          <div class="card__body">Conducted a login bypass attack on localhost to identify the database type (MySQL). Concluded with successful access to a user credentials table, demonstrating the injection vulnerability.</div>
+          <div class="card__pills">
+            <span class="pill">SQL</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">Login Bypass</span>
+            <span class="pill">localhost</span>
+          </div>
+          <div class="card__expand-hint">Click to expand</div>
+          <div class="card__detail">
+            <ul>
+              <li>Targeted login form hosted on the server virtual machine at localhost</li>
+              <li>Identified the database type as MySQL through error-based enumeration</li>
+              <li>Crafted SQL injection payloads to bypass authentication</li>
+              <li>Gained access to a table of user details, demonstrating data exposure risk</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card--project" data-category="Reconnaissance">
+          <div class="card__tag">Reconnaissance</div>
+          <div class="card__title">NMAP Port Scanning</div>
+          <div class="card__body">Ran aggressive port scans from cybersec-attacker to enumerate all open ports on cybersec-server and cybersec-client across all three virtual machines.</div>
+          <div class="card__pills">
+            <span class="pill">NMAP</span>
+            <span class="pill">Port Scanning</span>
+            <span class="pill">Enumeration</span>
+          </div>
+          <div class="card__expand-hint">Click to expand</div>
+          <div class="card__detail">
+            <ul>
+              <li>Used aggressive scan mode (<code style="background:rgba(201,168,76,0.1); padding:1px 5px; color:var(--gold);">-A</code>) for OS detection, version detection, and script scanning</li>
+              <li>Scanned cybersec-server and cybersec-client from the attacker VM</li>
+              <li>Enumerated all open ports, running services, and software versions</li>
+              <li>Results used to identify potential attack surface for further simulations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card--project" data-category="DNS Attacks">
+          <div class="card__tag">DNS Attacks</div>
+          <div class="card__title">DNS Pharming</div>
+          <div class="card__body">Three-part DNS attack simulation: HOSTS file modification, DNS response spoofing (Wireshark), and DNS server cache poisoning — all verified via dig and Wireshark.</div>
+          <div class="card__pills">
+            <span class="pill">DNS</span>
+            <span class="pill">Wireshark</span>
+            <span class="pill">dig</span>
+            <span class="pill">Cache Poisoning</span>
+          </div>
+          <div class="card__expand-hint">Click to expand</div>
+          <div class="card__detail">
+            <p><strong style="color:var(--gold); font-weight:500;">Part 1 — HOSTS File Modification</strong></p>
+            <ul>
+              <li>Edited the HOSTS file to override DNS for www.netsec-week3.com</li>
+              <li>Verified the change using the <code style="background:rgba(201,168,76,0.1); padding:1px 5px; color:var(--gold);">dig</code> command</li>
+            </ul>
+            <p style="margin-top:12px;"><strong style="color:var(--gold); font-weight:500;">Part 2 — DNS Response Spoofing</strong></p>
+            <ul>
+              <li>Captured DNS query from the client using Wireshark</li>
+              <li>Crafted and sent a forged DNS response from the attacker VM</li>
+              <li>Observed the spoofed result in Wireshark before stopping the attack</li>
+            </ul>
+            <p style="margin-top:12px;"><strong style="color:var(--gold); font-weight:500;">Part 3 — DNS Server Cache Poisoning</strong></p>
+            <ul>
+              <li>Injected a forged DNS response into the DNS server's cache</li>
+              <li>Subsequent client queries answered using the poisoned cache entry</li>
+              <li>Verified success using <code style="background:rgba(201,168,76,0.1); padding:1px 5px; color:var(--gold);">dig</code> and Wireshark</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card--project" data-category="Intrusion Detection">
+          <div class="card__tag">Intrusion Detection</div>
+          <div class="card__title">Snort IPS Configuration</div>
+          <div class="card__body">Configured Snort rules to log and alert on ICMP packets, web access attempts, ICMP Source Quench, and SSH connection attempts — each scenario independently recorded for review.</div>
+          <div class="card__pills">
+            <span class="pill">Snort</span>
+            <span class="pill">IPS</span>
+            <span class="pill">ICMP</span>
+            <span class="pill">SSH Detection</span>
+          </div>
+          <div class="card__expand-hint">Click to expand</div>
+          <div class="card__detail">
+            <p>Rules configured to detect and log:</p>
+            <ul>
+              <li>Any ICMP packets from any IP address</li>
+              <li>Web access (HTTP/HTTPS) attempts</li>
+              <li>ICMP Source Quench packets</li>
+              <li>SSH connection attempts — flagged and logged with alert messages</li>
+            </ul>
+            <p style="margin-top:12px;">Each alert rule allowed independent logging of scenarios, enabling iterative refinement of detection logic.</p>
+          </div>
+        </div>
+
+        <div class="card card--project" data-category="Network Security">
+          <div class="card__tag">Network Security</div>
+          <div class="card__title">Juniper SRX Firewall</div>
+          <div class="card__body">SSH into boundary and internal routers via PuTTY. Configured security zone policies, iptables rules, pass-through authentication with banners, and UDP flood IDS thresholds.</div>
+          <div class="card__pills">
+            <span class="pill">Juniper SRX</span>
+            <span class="pill">PuTTY</span>
+            <span class="pill">iptables</span>
+            <span class="pill">IDS/IPS</span>
+            <span class="pill">FTP/Telnet</span>
+          </div>
+          <div class="card__expand-hint">Click to expand</div>
+          <div class="card__detail">
+            <p><strong style="color:var(--gold); font-weight:500;">Setup</strong></p>
+            <ul>
+              <li>Used PuTTY to establish SSH connection to the boundary router, then logged into internal routers</li>
+            </ul>
+            <p style="margin-top:12px;"><strong style="color:var(--gold); font-weight:500;">Security Policy Configuration</strong></p>
+            <ul>
+              <li>Allowed only FTP traffic between zones Internet ↔ Internal</li>
+              <li>Configured policy to reject Telnet access to the server between zones</li>
+              <li>Set iptables rules to permit HTTP and HTTPS, dropping all other traffic</li>
+            </ul>
+            <p style="margin-top:12px;"><strong style="color:var(--gold); font-weight:500;">Firewall User Authentication</strong></p>
+            <ul>
+              <li>Implemented pass-through authentication using HTTP/HTTPS</li>
+              <li>Added custom banners for improved user experience</li>
+            </ul>
+            <p style="margin-top:12px;"><strong style="color:var(--gold); font-weight:500;">IDS Configuration</strong></p>
+            <ul>
+              <li>Configured UDP flood threshold at 1024 packets</li>
+              <li>Further UDP packets beyond threshold flagged and logged</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CUSTOMISE: Copy a card--project block above to add more projects -->
+        <div class="card card--placeholder" data-category="placeholder">
+          <div class="card__tag" style="opacity:.3;">Coming Soon</div>
+          <div class="card__title" style="opacity:.25; font-style:italic;">[ Add Project ]</div>
+          <div class="card__body" style="opacity:.25;">Space reserved for future projects — legal research, moot court work, or further technical projects.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="nav.js"></script>
+  <script>
+    // Filter logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card--project[data-category]');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          const show = filter === 'all' || card.dataset.category === filter || card.dataset.category === 'placeholder';
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    // Expand/collapse
+    cards.forEach(card => {
+      if (card.classList.contains('card--placeholder')) return;
+      card.addEventListener('click', () => {
+        card.classList.toggle('expanded');
+      });
+    });
+  </script>
+</body>
+</html>

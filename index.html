@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samyam Subedi — Law & Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 6vw 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      opacity: 0.12;
+      filter: grayscale(60%);
+    }
+
+    .hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 65%),
+        linear-gradient(to bottom, rgba(15,14,12,0.3) 0%, rgba(15,14,12,0.95) 100%);
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s ease both 0.1s;
+    }
+
+    .hero__eyebrow-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero__eyebrow-text {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero__name {
+      font-family: var(--serif);
+      font-size: clamp(56px, 10vw, 100px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      animation: fadeUp 0.8s ease both 0.2s;
+    }
+
+    .hero__name em {
+      font-style: italic;
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero__tagline {
+      margin-top: 24px;
+      font-size: 13.5px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      max-width: 460px;
+      line-height: 1.7;
+      animation: fadeUp 0.8s ease both 0.35s;
+    }
+
+    .hero__cta {
+      margin-top: 52px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp 0.8s ease both 0.5s;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 9.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: fadeUp 0.8s ease both 0.7s;
+    }
+
+    .hero__scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold-dim), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    /* QUICKLINKS */
+    .quicklinks {
+      background: var(--mid);
+      border-top: 1px solid var(--gold-dim);
+      border-bottom: 1px solid var(--gold-dim);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .quicklinks__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 38px 20px;
+      text-align: center;
+      border-right: 1px solid var(--gold-dim);
+      transition: background 0.25s;
+      text-decoration: none;
+      color: var(--text);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quicklinks__item::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .quicklinks__item:last-child { border-right: none; }
+    .quicklinks__item:hover { background: rgba(201,168,76,0.05); }
+    .quicklinks__item:hover::before { transform: scaleX(1); }
+
+    .quicklinks__icon {
+      font-size: 20px;
+      margin-bottom: 10px;
+      opacity: 0.6;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .quicklinks__item:hover .quicklinks__icon {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .quicklinks__label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .quicklinks__item:hover .quicklinks__label { color: var(--gold); }
+
+    /* INTRO STRIP */
+    .intro-strip {
+      padding: 96px 6vw;
+    }
+
+    .intro-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .intro-strip__text p {
+      color: var(--text-dim);
+      margin-bottom: 18px;
+      line-height: 1.85;
+      font-size: 15px;
+    }
+
+    .intro-strip__photo {
+      height: 420px;
+      position: relative;
+    }
+
+    .intro-strip__photo .img-frame {
+      height: 100%;
+    }
+
+    .intro-strip__photo-accent {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 60%;
+      height: 60%;
+      border: 1px solid var(--gold-dim);
+      z-index: -1;
+    }
+
+    /* EXPERTISE STRIP */
+    .expertise {
+      background: var(--surface);
+      padding: 80px 6vw;
+    }
+
+    .expertise__grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-dim);
+    }
+
+    .expertise__item {
+      background: var(--surface);
+      padding: 40px 36px;
+      transition: background 0.25s;
+    }
+
+    .expertise__item:hover { background: var(--surface2); }
+
+    .expertise__number {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .expertise__title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .expertise__desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      .intro-inner { grid-template-columns: 1fr; gap: 48px; }
+      .intro-strip__photo { height: 300px; }
+      .expertise__grid { grid-template-columns: 1fr; }
+      .quicklinks { grid-template-columns: repeat(3, 1fr); }
+      .quicklinks__item:nth-child(3) { border-right: none; }
+    }
+
+    @media (max-width: 500px) {
+      .quicklinks { grid-template-columns: repeat(2, 1fr); }
+      .quicklinks__item:nth-child(2) { border-right: none; }
+      .quicklinks__item:nth-child(4) { border-right: none; }
+    }
+  </style>
+</head>
+<body class="page">
+
+  <!-- nav injected by nav.js -->
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg">
+      <!-- Unsplash: law books / library atmosphere -->
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80&fit=crop" alt="">
+    </div>
+
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <div class="hero__eyebrow-line"></div>
+        <span class="hero__eyebrow-text">Portfolio</span>
+        <div class="hero__eyebrow-line"></div>
+      </div>
+      <h1 class="hero__name">Samyam<em>Subedi</em></h1>
+      <p class="hero__tagline">Bachelor of Laws · University of Technology Sydney<br>Cybersecurity &amp; Technology Law</p>
+      <div class="hero__cta">
+        <a href="contact.html" class="btn btn--gold">Get in Touch</a>
+        <a href="projects.html" class="btn btn--ghost">View Projects</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- QUICK NAVIGATION STRIP -->
+  <div class="quicklinks">
+    <a href="about.html" class="quicklinks__item">
+      <span class="quicklinks__icon">◎</span>
+      <span class="quicklinks__label">About</span>
+    </a>
+    <a href="education.html" class="quicklinks__item">
+      <span class="quicklinks__icon">◆</span>
+      <span class="quicklinks__label">Education</span>
+    </a>
+    <a href="projects.html" class="quicklinks__item">
+      <span class="quicklinks__icon">■</span>
+      <span class="quicklinks__label">Projects</span>
+    </a>
+    <a href="activities.html" class="quicklinks__item">
+      <span class="quicklinks__icon">◇</span>
+      <span class="quicklinks__label">Activities</span>
+    </a>
+    <a href="contact.html" class="quicklinks__item">
+      <span class="quicklinks__icon">□</span>
+      <span class="quicklinks__label">Contact</span>
+    </a>
+  </div>
+
+  <!-- STAT STRIP -->
+  <div class="stat-strip">
+    <div class="stat-item">
+      <div class="stat-item__number">2×</div>
+      <div class="stat-item__label">ADF Young Innovators Award</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-item__number">7</div>
+      <div class="stat-item__label">Cybersecurity Projects</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-item__number">5+</div>
+      <div class="stat-item__label">Years Competitive Debating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-item__number">UTS</div>
+      <div class="stat-item__label">Bachelor of Laws</div>
+    </div>
+  </div>
+
+  <!-- INTRO TEASER -->
+  <div class="intro-strip">
+    <div class="intro-inner">
+      <div class="intro-strip__text">
+        <p class="section__label" style="margin-bottom:18px;">Introduction</p>
+        <p style="font-family: var(--serif); font-size: clamp(22px, 2.5vw, 28px); font-weight: 300; color: var(--text); line-height: 1.4; margin-bottom: 24px;">A law student at the intersection of technology, policy and security.</p>
+        <p>I am a Bachelor of Laws student at the University of Technology Sydney with a strong academic record and a unique intersection of legal study and technical cybersecurity practice.</p>
+        <p>My background spans competitive debating, ethics scholarship, and hands-on security research — positioning me at the crossroads of law, technology, and policy.</p>
+        <a href="about.html" class="btn btn--ghost" style="margin-top:16px;">Read More</a>
+      </div>
+
+      <div class="intro-strip__photo">
+        <!-- CUSTOMISE: replace src with your own photo -->
+        <div class="img-frame" style="height:100%;">
+          <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80&fit=crop&crop=center" alt="Law books — placeholder for Samyam's photo">
+        </div>
+        <div class="intro-strip__photo-accent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERTISE STRIP -->
+  <div class="expertise">
+    <div class="expertise__grid">
+      <div class="expertise__item">
+        <div class="expertise__number">01</div>
+        <div class="expertise__title">Technology Law</div>
+        <div class="expertise__desc">Cyber regulation, digital rights, data privacy legislation, and the evolving intersection of law and emerging technologies.</div>
+      </div>
+      <div class="expertise__item">
+        <div class="expertise__number">02</div>
+        <div class="expertise__title">Cybersecurity</div>
+        <div class="expertise__desc">Hands-on network security, ethical hacking, intrusion detection, and firewall configuration across enterprise-grade tools.</div>
+      </div>
+      <div class="expertise__item">
+        <div class="expertise__number">03</div>
+        <div class="expertise__title">Legal Advocacy</div>
+        <div class="expertise__desc">Competitive debating, ethics scholarship, and structured argumentation — the foundations of courtroom advocacy.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- image banner -->
+  <div class="img-banner-wrap">
+    <img class="img-banner" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&q=70&fit=crop" alt="Cybersecurity visual">
+  </div>
+
+  <script src="nav.js"></script>
+</body>
+</html>

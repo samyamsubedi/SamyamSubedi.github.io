@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Samyam Subedi</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* PAGE HEADER BANNER */
+    .page-header {
+      position: relative;
+      height: 320px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 6vw 48px;
+      overflow: hidden;
+    }
+
+    .page-header__bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .page-header__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      opacity: 0.18;
+      filter: grayscale(40%);
+    }
+
+    .page-header__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(15,14,12,0.9) 40%, rgba(15,14,12,0.3) 100%);
+    }
+
+    .page-header__content {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .page-header__content h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      animation: fadeUp 0.7s ease both 0.1s;
+    }
+
+    /* ABOUT LAYOUT */
+    .about-body {
+      padding: 80px 6vw;
+    }
+
+    .about-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-grid__photo {
+      position: sticky;
+      top: 80px;
+    }
+
+    .about-grid__photo .img-frame {
+      aspect-ratio: 4/5;
+    }
+
+    .about-photo-caption {
+      margin-top: 16px;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+
+    .about-grid__text p {
+      color: var(--text-dim);
+      margin-bottom: 20px;
+      line-height: 1.85;
+    }
+
+    .about-grid__text h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin: 44px 0 16px;
+    }
+
+    /* INTERESTS */
+    .interests {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .interest-item {
+      border: 1px solid var(--gold-dim);
+      padding: 18px 20px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .interest-item:hover {
+      background: var(--gold-glow);
+      border-color: rgba(201,168,76,0.5);
+    }
+
+    .interest-item__label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+
+    .interest-item__text {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* SKILLS */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      border-left: 2px solid var(--gold);
+      padding: 16px 24px;
+      margin: 32px 0;
+      background: var(--gold-glow);
+    }
+
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text) !important;
+      margin: 0 !important;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 860px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-grid__photo { position: static; }
+      .interests { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page">
+
+  <!-- PAGE HEADER BANNER -->
+  <div class="page-header">
+    <div class="page-header__bg">
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1400&q=80&fit=crop" alt="">
+    </div>
+    <div class="page-header__content">
+      <p class="section__label" style="margin-bottom:12px;">Introduction</p>
+      <h1>About Me</h1>
+    </div>
+  </div>
+
+  <!-- ABOUT BODY -->
+  <div class="about-body">
+    <div class="about-grid">
+
+      <!-- Photo column -->
+      <div class="about-grid__photo">
+        <!-- CUSTOMISE: replace this img src with your own photo -->
+        <div class="img-frame">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&fit=crop&crop=faces" alt="Samyam Subedi — placeholder photo">
+        </div>
+        <p class="about-photo-caption">Samyam Subedi &mdash; Sydney, NSW</p>
+      </div>
+
+      <!-- Text column -->
+      <div class="about-grid__text fade-up">
+
+        <p>I am a Bachelor of Laws student at the University of Technology Sydney. My academic journey bridges the gap between legal scholarship and hands-on cybersecurity — a combination that positions me for the growing field of technology law, digital policy, and cyber regulation.</p>
+
+        <div class="pull-quote">
+          <p>"Law and technology aren't separate disciplines — they're a conversation. I'm here to be fluent in both."</p>
+        </div>
+
+        <!-- CUSTOMISE: Replace this with your personal statement -->
+        <p style="color:rgba(200,194,180,0.45); font-style:italic; font-size:13px; border: 1px dashed rgba(201,168,76,0.2); padding: 16px 18px;">[ Add your personal statement here — your motivations, career goals, and what drives you. ]</p>
+
+        <p>My competitive debating and ethics background has refined my ability to construct and critically analyse arguments — skills equally valuable in a courtroom or a policy brief. The ADF Young Innovators Award, awarded twice, reflects my drive to apply analytical thinking beyond the classroom.</p>
+
+        <h3>Areas of Interest</h3>
+        <div class="interests">
+          <div class="interest-item">
+            <div class="interest-item__label">Technology Law</div>
+            <div class="interest-item__text">Cyber regulation, digital rights, data privacy</div>
+          </div>
+          <div class="interest-item">
+            <div class="interest-item__label">Cybersecurity</div>
+            <div class="interest-item__text">Network security, ethical hacking, IDS/IPS</div>
+          </div>
+          <div class="interest-item">
+            <div class="interest-item__label">Ethics &amp; Policy</div>
+            <div class="interest-item__text">Applied ethics, legal philosophy, public policy</div>
+          </div>
+          <!-- CUSTOMISE: Add or edit interest blocks -->
+          <div class="interest-item" style="border-style:dashed; opacity:.35;">
+            <div class="interest-item__label">[ Add Area ]</div>
+            <div class="interest-item__text">Your area of interest</div>
+          </div>
+        </div>
+
+        <h3>Skills</h3>
+        <div class="skills-list">
+          <span class="pill">Legal Research</span>
+          <span class="pill">Debating</span>
+          <span class="pill">Critical Analysis</span>
+          <span class="pill">Network Security</span>
+          <span class="pill">Wireshark</span>
+          <span class="pill">NMAP</span>
+          <span class="pill">Snort</span>
+          <span class="pill">SQL</span>
+          <span class="pill">VMWare</span>
+          <!-- CUSTOMISE: add more skill pills -->
+        </div>
+
+        <div style="margin-top:44px; display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="education.html" class="btn btn--gold">Education &amp; Awards</a>
+          <a href="contact.html" class="btn btn--ghost">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- decorative image banner -->
+  <div class="img-banner-wrap">
+    <img class="img-banner" src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=1600&q=70&fit=crop" alt="">
+  </div>
+
+  <script src="nav.js"></script>
+</body>
+</html>

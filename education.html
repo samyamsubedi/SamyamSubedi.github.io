@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education &amp; Awards — Samyam Subedi</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* PAGE HEADER */
+    .page-header {
+      position: relative;
+      height: 300px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 6vw 48px;
+      overflow: hidden;
+    }
+
+    .page-header__bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .page-header__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 50%;
+      opacity: 0.15;
+      filter: grayscale(50%);
+    }
+
+    .page-header__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(15,14,12,0.92) 40%, rgba(15,14,12,0.4) 100%);
+    }
+
+    .page-header__content {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .page-header__content h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    /* AWARD HIGHLIGHT */
+    .award-highlight {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+      border: 1px solid var(--gold-dim);
+      border-left: 3px solid var(--gold);
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .award-highlight:hover {
+      transform: translateX(4px);
+      box-shadow: -4px 0 20px rgba(201,168,76,0.12);
+    }
+
+    .award-highlight__icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      opacity: 0.8;
+    }
+
+    .award-highlight__year {
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .award-highlight__title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .award-highlight__org {
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="page">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header__bg">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1400&q=80&fit=crop" alt="">
+    </div>
+    <div class="page-header__content">
+      <p class="section__label" style="margin-bottom:12px;">Academic Background</p>
+      <h1>Education &amp; Awards</h1>
+    </div>
+  </div>
+
+  <!-- EDUCATION TIMELINE -->
+  <section class="section">
+    <div class="section__inner">
+      <p class="section__label">Qualifications</p>
+      <h2 class="section__title">Education</h2>
+
+      <div class="timeline">
+
+        <div class="timeline__item fade-up">
+          <div class="timeline__year">Ongoing</div>
+          <div class="timeline__spine">
+            <div class="timeline__dot"></div>
+            <div class="timeline__line"></div>
+          </div>
+          <div class="timeline__body">
+            <div class="timeline__title">Bachelor of Laws</div>
+            <div class="timeline__org">University of Technology Sydney, NSW</div>
+            <!-- CUSTOMISE: Add WAM, subjects, focus areas, or achievements below -->
+            <div class="timeline__desc">[ Add areas of focus, relevant subjects, WAM, or achievements here ]</div>
+          </div>
+        </div>
+
+        <div class="timeline__item fade-up">
+          <div class="timeline__year">2020–2024</div>
+          <div class="timeline__spine">
+            <div class="timeline__dot"></div>
+            <div class="timeline__line"></div>
+          </div>
+          <div class="timeline__body">
+            <div class="timeline__title">High School Certificate</div>
+            <div class="timeline__org">St Vincent's College Ashfield, NSW</div>
+            <div class="timeline__desc">Achieved academic excellence across senior schooling, earning leadership responsibilities and multiple subject-level distinctions including First in Course and Principal's Award.</div>
+          </div>
+        </div>
+
+        <!-- CUSTOMISE: Copy a timeline__item block to add more education entries -->
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- AWARDS SECTION -->
+  <section class="section section--alt">
+    <div class="section__inner">
+      <p class="section__label">Recognition</p>
+      <h2 class="section__title">Awards &amp; Honours</h2>
+
+      <!-- HIGHLIGHTED AWARDS -->
+      <div style="margin-bottom: 56px;">
+        <div class="award-highlight fade-up">
+          <div class="award-highlight__icon">🏅</div>
+          <div>
+            <div class="award-highlight__year">2024 &amp; 2022</div>
+            <div class="award-highlight__title">Young Innovators Award</div>
+            <div class="award-highlight__org">Australian Defence Force, NSW — Awarded twice at state level</div>
+          </div>
+        </div>
+
+        <div class="award-highlight fade-up">
+          <div class="award-highlight__icon">🥇</div>
+          <div>
+            <div class="award-highlight__year">2024</div>
+            <div class="award-highlight__title">First in Course Awards</div>
+            <div class="award-highlight__org">St Vincent's College Ashfield, NSW — [ Add specific subject names here ]</div>
+          </div>
+        </div>
+
+        <div class="award-highlight fade-up">
+          <div class="award-highlight__icon">⭐</div>
+          <div>
+            <div class="award-highlight__year">2020–2024</div>
+            <div class="award-highlight__title">Academic Excellence Awards</div>
+            <div class="award-highlight__org">St Vincent's College Ashfield, NSW — Four consecutive years</div>
+          </div>
+        </div>
+
+        <div class="award-highlight fade-up">
+          <div class="award-highlight__icon">🎖️</div>
+          <div>
+            <div class="award-highlight__year">2024</div>
+            <div class="award-highlight__title">Principal's Award</div>
+            <div class="award-highlight__org">St Vincent's College Ashfield, NSW — Outstanding contribution to the school community</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FULL TIMELINE VERSION -->
+      <div class="timeline">
+
+        <div class="timeline__item">
+          <div class="timeline__year">2024 &amp; 2022</div>
+          <div class="timeline__spine">
+            <div class="timeline__dot"></div>
+            <div class="timeline__line"></div>
+          </div>
+          <div class="timeline__body">
+            <div class="timeline__title">Young Innovators Award</div>
+            <div class="timeline__org">Australian Defence Force, NSW</div>
+            <div class="timeline__desc">Awarded twice for demonstrating creativity, initiative, and strong analytical skills in technology-focused activities. One of a select group of students recognised at state level.</div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__year">2024</div>
+          <div class="timeline__spine">
+            <div class="timeline__dot"></div>
+            <div class="timeline__line"></div>
+          </div>
+          <div class="timeline__body">
+            <div class="timeline__title">First in Course Awards</div>
+            <div class="timeline__org">St Vincent's College Ashfield, NSW</div>
+            <!-- CUSTOMISE: List the specific subjects -->
+            <div class="timeline__desc">Achieved first place in multiple subjects. [ Add specific subject names here ]</div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__year">2020–2024</div>
+          <div class="timeline__spine">
+            <div class="timeline__dot"></div>
+            <div class="timeline__line"></div>
+          </div>
+          <div class="timeline__body">
+            <div class="timeline__title">Academic Excellence Awards</div>
+            <div class="timeline__org">St Vincent's College Ashfield, NSW</div>
+            <div class="timeline__desc">Consistently achieved top academic performance across multiple subjects throughout senior schooling over four consecutive years.</div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__year">2024</div>
+          <div class="timeline__spine">
+            <div class="timeline__dot"></div>
+            <div class="timeline__line"></div>
+          </div>
+          <div class="timeline__body">
+            <div class="timeline__title">Principal's Award</div>
+            <div class="timeline__org">St Vincent's College Ashfield, NSW</div>
+            <div class="timeline__desc">Awarded for outstanding contribution to the school community and exemplary academic performance.</div>
+          </div>
+        </div>
+
+        <!-- CUSTOMISE: Add more timeline__item blocks for further awards -->
+
+      </div>
+    </div>
+  </section>
+
+  <div class="img-banner-wrap">
+    <img class="img-banner" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=70&fit=crop" alt="">
+  </div>
+
+  <script src="nav.js"></script>
+</body>
+</html>
