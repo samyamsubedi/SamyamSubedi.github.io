@@ -1,7 +1,7 @@
-/* nav.js — injects shared nav + footer into every page */
 (function () {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
+  /* Navigation bar at the top of website */
   const links = [
     { href: 'index.html',       label: 'Home' },
     { href: 'about.html',       label: 'About' },
@@ -25,13 +25,14 @@
     </nav>
   `;
 
+  /*External Links to Contacts/Socials */
+
   const footerHTML = `
     <footer>
       <p>&copy; ${new Date().getFullYear()} Samyam Subedi &mdash; Law &amp; Cybersecurity</p>
       <div class="footer-links">
-        <!-- CUSTOMISE: replace # with your actual URLs -->
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
+        <a href="https://www.linkedin.com/in/samyam-subedi-68003238a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/samyamsubedi" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="contact.html">Contact</a>
       </div>
     </footer>
@@ -40,7 +41,7 @@
   document.body.insertAdjacentHTML('afterbegin', navHTML);
   document.body.insertAdjacentHTML('beforeend', footerHTML);
 
-  // mobile toggle
+  // mobile toggle -- Note: has not been tested as of yet but should be optimised to some degree
   document.getElementById('navToggle').addEventListener('click', function () {
     document.getElementById('navLinks').classList.toggle('open');
   });
